@@ -1,0 +1,25 @@
+section{
+    padding-top: 2%;
+    padding: 30%, 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+
+     ul{
+        display: none;
+        list-style: none;
+        flex-direction: column;
+        position:relative;
+        &.show{
+            display: flex;
+        }
+    }
+    
+.cd{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
