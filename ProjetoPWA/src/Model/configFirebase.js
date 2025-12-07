@@ -37,11 +37,11 @@
             nome: nome,
             apelido : apelido
         };
-        alert('Conta criada com sucesso!');
+        console.log('Conta criada com sucesso!');
         const docRef=doc(db, "users", user.uid);
         setDoc(docRef,userData)
         .then(()=>{
-            window.location.href='usuario.html';
+            window.location.href='cadastro.html';
         })
         .catch((error)=>{
             console.error("Erro ao escrever o", error);
@@ -51,10 +51,10 @@
     .catch((error)=>{
         const errorCode= error.code;
         if(errorCode=='auth/email-already-in-use'){
-            alert('O e-mail registrado ja esta em uso');
+            console.log('O e-mail registrado ja esta em uso');
         }
         else{
-            alert('Incapz de criar o usuario');}
+            console.log('Incapz de criar o usuario');}
     })
   })
 });
@@ -69,7 +69,7 @@
 
     signInWithEmailAndPassword(auth, email,senha)
     .then((userCredential)=>{
-        alert('Login feito com sucesso');
+        console.log('Login feito com sucesso');
         const user=userCredential.user;
         localStorage.setItem('logadoUserID', user.uid);
         window.location.href='PaginaInicial.html';
@@ -77,10 +77,10 @@
     .catch((error)=>{
         const errorCode=error.code;
         if(errorCode==='auth/invalid-credential'){
-            alert('Email ou senha incorreto');
+            console.log('Email ou senha incorreto');
         }
         else{
-            alert('essa Connta não existe');
+            console.log('essa Connta não existe');
         }
     })
  })

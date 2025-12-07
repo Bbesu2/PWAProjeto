@@ -62,7 +62,7 @@ onAuthStateChanged(auth, async (user) => {
       await deleteDoc(doc(db, "users", user.uid));
       await user.delete();
       alert("Conta excluída com sucesso!");
-      window.location.href = "login.html";
+      window.location.href = "cadastro.html";
     } catch (error) {
       console.error("Erro ao excluir:", error);
       if (error.code === "auth/requires-recent-login") {

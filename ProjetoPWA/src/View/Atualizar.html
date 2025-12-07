@@ -84,8 +84,6 @@
 </form>
 </div>
 
-</body>
-
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
@@ -103,13 +101,17 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
+  // 🔹 Verifica se o usuário está logado
   onAuthStateChanged(auth, (user) => {
     if (!user) {
+      console.log("nenhuma conta encontrada")
       window.location.href = "Cadastro.html";
     } else {
       console.log("Usuário autenticado:", user.email);
+    
     }
   });
 </script>
+</body>
 </html>
 

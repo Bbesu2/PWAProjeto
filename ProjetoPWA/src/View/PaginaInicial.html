@@ -621,9 +621,8 @@
     <script type="module" src="../Model/configFirebase.js"></script>
     <script type="module" src="../Model/logout.js"></script>
     <script type="module" src="../Model/usuario.js"></script>
-</body>
 
-<script type="module">
+    <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
@@ -643,12 +642,13 @@
   // 🔹 Verifica se o usuário está logado
   onAuthStateChanged(auth, (user) => {
     if (!user) {
-      // Se não estiver logado, redireciona para login
-      window.location.href = "Cadastro.html"; // ou login.html
+      console.log("nenhuma conta encontrada")
+      window.location.href = "Cadastro.html";
     } else {
       console.log("Usuário autenticado:", user.email);
-      // Aqui você pode carregar o conteúdo da página normalmente
+    
     }
   });
 </script>
+</body>
 </html>
