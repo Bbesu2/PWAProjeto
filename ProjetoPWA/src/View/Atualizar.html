@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina Inicial</title>
-  <link rel="stylesheet" href="../CSS/estilo.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <script type="module" src="../Model/logout.js" defer></script>
-  <script type="module" src="../Model/usuario.js" defer></script>
+  <title>Atualizar Dados</title>
   <script type="module" src="../Controller/user-update.js" defer></script>
-
-<link rel="manifest" href="../SW/manifest.json">
+    <link rel="stylesheet" href="../CSS/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="manifest" href="../SW/manifest.json">
             <script src="sw.js"></script>
 </head>
 <body>
-  <div class="preto"></div>
+<div class="preto"></div>
   <div class="fundo"></div>
 
   <header>
@@ -62,28 +58,58 @@
     <script src="../Model/btnNav.js" defer></script>
   </header>
 
-  <div class="UserFundo">
-      <h1>Area de Usuario</h1>
 
-    <div class="User">
-      <img src="../Icons/IconUser.jpeg" class="icon">
-      <div>Nome: <span id="LogadoNomeUser"></span></div>
-      <div>Apelido: <span id="LogadoApelidoUser"></span></div>
-      <div>E-mail: <span id="LogadoEmailUser"></span></div>
-      <div class="botao">
-      <button class="opc" type="button" id="SairBtn">Desconectar</button>
-      <button class="opc" type="button" id="SubmitBtnAtualizar">Atualizar Dados</button>
-      <button class="opc" type="button" id="deleteAccount">Excluir Conta</button>
-    </div>
-    </div>
-  </div>
+<div class="container">
+<h2>Atualizar Dados</h2>
+<form id="userUpdateForm">
+  <label for="novoNomeUser">Nome:</label>
+  <br>
+  <input type="text" id="novoNomeUser">
+<br>
+<br>
 
-  <script type="module">
-    const btn = document.getElementById("SubmitBtnAtualizar");
-    btn?.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = "../View/Atualizar.html";
-    });
-  </script>
+  <label for="novoApelidoUser">Apelido:</label>
+  <br>
+  <input type="text" id="novoApelidoUser">
+
+  <br>
+  <label for="novoEmailUser"></label>
+  <br>
+  <input hidden type="email" id="novoEmailUser">
+  
+<div class="botao">  
+  <button class="opc" type="submit">Salvar Alterações</button>
+  <button class="opc" type="button" id="cancelUpdate">Cancelar</button>
+</div>
+</form>
+</div>
+
 </body>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB31IZTdVVqvpR42akBqg1MethvAozL_20",
+    authDomain: "projetopwa-1c79a.firebaseapp.com",
+    projectId: "projetopwa-1c79a",
+    storageBucket: "projetopwa-1c79a.firebasestorage.app",
+    messagingSenderId: "262652544848",
+    appId: "1:262652544848:web:da4b58af50dbdfccd28e55",
+    measurementId: "G-SQJPC0BCWX"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "Cadastro.html";
+    } else {
+      console.log("Usuário autenticado:", user.email);
+    }
+  });
+</script>
 </html>
+

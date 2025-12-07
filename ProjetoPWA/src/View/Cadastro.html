@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/estilo.css">
     <script type="module" src="../Model/configFirebase.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-    
+<div class="preto"></div>
+  <div class="fundoCadastro"></div>
+
 
     <div class="container" id="cadastrar" style="display:none;">
     <h1 class="formTitulo">Cadastrar</h1>
@@ -38,11 +41,14 @@
         </div>
         <br>
 
-        <button type="submit" id="SubmitBtnCadastrar">Cadastrar</button>
-    </form>
-          <div class="links">
+        <div class="botao">
+        <button type="submit" class="opc" id="SubmitBtnCadastrar">Cadastrar</button>
+      </div>
+
+      </form>
+          <div class="botao">
         <p>Já tem uma conta?</p>
-        <button id="entrarBtn">Entrar</button>
+        <button class="opcdvd" id="entrarBtn">Entrar</button>
       </div>
 </div>
 
@@ -58,14 +64,14 @@
             <label for="senhaUserLogin">Senha</label>
             <input type="password" id="senhaUserLogin"  placeholder="Senha" required>
           </div>
-          <p class="recover">
-            <a href="#">Recuperar senha</a>
-          </p>
-         <button  class="btn"  id="SubmitBtnEntrar">Entrar</button>
+
+                  <div class="botao">
+         <button  class="opc" type="submit"  id="SubmitBtnEntrar">Entrar</button>
+                  </div>
         </form>
         <div class="links">
           <p>Não tem uma conta ainda?</p>
-          <button id="cadastrarBtn">Cadastre-se</button>
+          <button class="opcdvd" id="cadastrarBtn">Cadastre-se</button>
         </div>
 </div>
     <script src="../Model/formsView.js"></script>

@@ -2,6 +2,81 @@
 @import url(../CSS/variaveis.css);
 @import url(../CSS/navbar.css);
 @import url(../CSS/Musica.css);
+@import url(../CSS/userEstilo.css);
+@import url(../CSS/custombtn.css);
+@import url(../CSS/FormsEstilo.css);
+
+
+@media (max-width: 770px) {
+  .fundo {
+    opacity: 60%;
+    background-image: url("../Imagens/fundoCel.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    z-index: -1;
+  }
+
+  .fundoCadastro{
+        opacity: 60%;
+    background-image: url("../Imagens/fundoCel.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: -1;
+
+  }
+}
+
+@media (min-width: 771px) {
+  .fundo {
+    opacity: 60%;
+    background-image: url("../Imagens/fundoDesktop.jpeg"); /* 🔹 imagem para desktop */
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    z-index: -1;
+  }
+
+  .fundoCadastro {
+    opacity: 60%;
+    background-image: url("../Imagens/fundoDesktop.jpeg"); /* 🔹 imagem para desktop */
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+
+
+  .fundoCadastro{
+      .fundo {
+    opacity: 60%;
+    background-image: url("../Imagens/fundoDesktop.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: -1;
+  }
+  }
 
 
 *{
@@ -9,6 +84,21 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Josefin Sans", sans-serif;
+}
+
+
+html {
+background-color: var(--color-principal-2);
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+.preto{
+    width: 100dvw;
+    height: 100vh;
+background-color: black;
+position: fixed;
+z-index: -2;
 }
 
 a.btn{

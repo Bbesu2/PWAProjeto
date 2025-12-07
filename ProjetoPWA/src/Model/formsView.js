@@ -12,3 +12,5 @@ entrarBtn.addEventListener('click', () => {
   cadastrarForm.style.display = "none";   
   entrarForm.style.display = "block";   
 });
+
+

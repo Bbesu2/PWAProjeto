@@ -12,15 +12,18 @@
     --color-neutral-9: #000000;
 
 
-    --color-principal-0: #1C223A;
-    --color-principal-1: #e5d4b6;
-    --color-principal-2: #f44e1c;
+    --color-principal-0: #0b1137;
+    --color-principal-1: #e7dba3;
+    --color-principal-2: #f2eee8;
+    --color-principal-3: #f2f2fb;
+    --color-principal-4: #2a357a;
+    --color-principal-5: #62698d;
+
 
     --color-segundarias-0: #3ca081;
     --color-segundarias-1: #b1302b;
-    --color-segundarias-2: #f5deb2;
 
-    --color-terceiras-0: #697351;
+    --color-terceiras-0: #e7dba3;
     --color-terceiras-1: #8c361b;
-    --color-terceiras-2: #d8925e;
+    --color-terceiras-2: #e2706a;
 }

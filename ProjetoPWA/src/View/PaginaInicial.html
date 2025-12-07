@@ -1,113 +1,654 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Pagina Inicial</title>
+  <script type="module" src="../Controller/user-update.js" defer></script>
     <link rel="stylesheet" href="../CSS/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="manifest" href="../SW/manifest.json">
+            <script src="sw.js"></script>
 </head>
 <body>
+
+  <div class="preto"></div>
+  <div class="fundo"></div>
     <!--header-->
     <header>
         <nav class="navbar">
-            <img 
+            <img  
                 src="../Icons/logo.png"
                 alt="Logo Pagina"
                 class="logo">
 
                 <button class="btn btn-nav">
-                    <i class="fa-bars fa-solid"></i>
+                    <i class="fa-bars fa-solid" style="color: #e7dba3;"></i>
                 </button>
 
-                 <ul id="nav-links">
-                    <li>
+                 <ul  class="descricao" id="nav-links">
+                    <li class="descricao">
                         <a href="#home">Inicio</a>
                     </li>
-                    <li>
+                    <li class="descricao">
                         <a href="#ChicoBuarque">Chico Buarque</a>
                     </li>
-                    <li>
-                        <a href="#Jax">Jax</a>
+                    <li class="descricao">
+                        <a href="#AveSangria">Ave Sangria</a>
                     </li>
-                    <li>
-                        <a href="#Zooble">Zooble</a>
+                    <li class="descricao">
+                        <a href="#LegiaoUrbana">Legião Urbana</a>
                     </li>
-                     <li>
-                        <a href="#Gangle">Gangle</a>
+                     <li class="descricao">
+                        <a href="#OGrilo">O Grilo</a>
                     </li>
-                    <li>
-                        <a href="#King">King</a>
+                    <li class="descricao">
+                        <a href="#OsParalamasDoSucesso">Os Paralamas do Sucesso</a>
                     </li>                    
-                    <li>
-                        <a href="#Caine">Caine</a>
+                    <li class="descricao">
+                        <a href="#Pullovers">Pullovers</a>
                     </li>
                     <li>
-                        <a href="./Usuario.html">User</a>
+                      <a href="./Usuario.html"><i class="fa-solid fa-user"></i></a>
                     </li>
+
                 </ul>
                 <a href="#" class="btn btn-default">
-                    contratar
                 </a>
         </nav>
     </header>
 
+
+
     <!--Main-->
-    <main>
-        
-        <!--Chico Buarque-->
-            <section id="ChicoBuarque">
-                <h1>Chico Buarque</h1>
-    <button class="cd" id="bntChicoBuarque" type="button">
-        <img class="cd" src="../Imagens/DiscoCD/CdDisco.jpeg" width="100px" height="100px">
-    </button>
-    <ul id="CdChicoBuarque">
-            <h4>A Banda</h4>
-        <li><audio controls><source src="../Imagens/Musica/ChicoBuarque/ABanda.mp3" type="audio/mpeg"></audio></li>
-            <h4>Calice</h4>
-        <li><audio controls><source src="../Imagens/Musica/ChicoBuarque/Calice.mp3" type="audio/mpeg"></audio></li>
-            <h4>Construção</h4>
-        <li><audio controls><source src="../Imagens/Musica/ChicoBuarque/Construcao.mp3" type="audio/mpeg"></audio></li>
-            <h4>Geni e o Zepelim</h4>
-        <li><audio controls><source src="../Imagens/Musica/ChicoBuarque/GenieoZepelim.mp3" type="audio/mpeg"></audio></li>
-            <h4>Roda Viva</h4>
-        <li><audio controls><source src="../Imagens/Musica/ChicoBuarque/RodaViva.mp3" type="audio/mpeg"></audio></li>
-            <h4>Samba e Amor</h4>
-        <li><audio controls><source src="../Imagens/Musica/ChicoBuarque/SambaEAmor.mp3" type="audio/mpeg"></audio></li>
-    </ul>
-            </section>
+    <main> 
+       <div>
+        <section id="Inicio"></section>
+       </div>
 
-            
-            <section id="Jax"> 
-                <img src="" alt="">
-               <br>               <br>
-            </section>
-
-            <section id="Zooble">
-                <img src="" alt=""> 
-               <br>               <br>
-            </section>
+       <div>
+         <br>
+     <div class="titulo"><h1>Chico Buarque</h1></div>
+        <section id="ChicoBuarque">
                
-            <section id="Zooble">
-                <img src="" alt=""> 
-               <br>               <br>
-            </section>
+    <button class="cd" id="bntChicoBuarque" type="button">
+        <img class="disobnt" id="CdImgChico" src="../Imagens/DiscoCD/CdDisco.jpeg" width="200px" height="200px">
+    </button>
 
-            <section id="Zooble">
-                <img src="" alt=""> 
-               <br>               <br>
-            </section>
-                    
-            <section id="Zooble">
-                <img src="" alt=""> 
-               <br>               <br>
-            </section>
-                
-    </main>
-    
+    <ul id="CdChicoBuarque">
+      <br><br>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>A Banda</h4>
+        <audio id="ABanda">
+          <source src="../Imagens/Musica/ChicoBuarque/ABanda.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler">
+        <button disabled><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('ABanda').play()"><i class="fa-solid fa-play"></i></button>
+          <button onclick="document.getElementById('ABanda').pause()"><i class="fa-solid fa-pause"></i></button>
+          <button onclick="document.getElementById('ABanda').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button>
+          <button onclick="document.getElementById('ABanda').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button>
+        </div>
+      </div>
+    </li>
+        
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Calice</h4>
+        <audio id="Calice">
+          <source src="../Imagens/Musica/ChicoBuarque/Calice.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler">
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('Calice').play()"><i class="fa-solid fa-play"></i></button>
+          <button onclick="document.getElementById('Calice').pause()"><i class="fa-solid fa-pause"></i></button>
+          <button onclick="document.getElementById('Calice').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button>
+          <button onclick="document.getElementById('Calice').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button>
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Construção</h4>
+        <audio id="Construcao">
+          <source src="../Imagens/Musica/ChicoBuarque/Construcao.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler">
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('Construcao').play()"><i class="fa-solid fa-play"></i></button>
+          <button onclick="document.getElementById('Construcao').pause()"><i class="fa-solid fa-pause"></i></button>
+          <button onclick="document.getElementById('Construcao').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button>
+          <button onclick="document.getElementById('Construcao').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button>
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Geni e o Zepelim</h4>
+        <audio id="GenieoZepelim">
+          <source src="../Imagens/Musica/ChicoBuarque/GenieoZepelim.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler">
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('GenieoZepelim').play()"><i class="fa-solid fa-play"></i></button>
+          <button onclick="document.getElementById('GenieoZepelim').pause()"><i class="fa-solid fa-pause"></i></button>
+          <button onclick="document.getElementById('GenieoZepelim').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button>
+          <button onclick="document.getElementById('GenieoZepelim').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button>
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Roda Viva</h4>
+        <audio id="RodaViva">
+          <source src="../Imagens/Musica/ChicoBuarque/RodaViva.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler">
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('RodaViva').play()"><i class="fa-solid fa-play"></i></button>
+          <button onclick="document.getElementById('RodaViva').pause()"><i class="fa-solid fa-pause"></i></button>
+          <button onclick="document.getElementById('RodaViva').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button>
+          <button onclick="document.getElementById('RodaViva').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button>
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Samba e Amor</h4>
+        <audio id="SambaEAmor">
+          <source src="../Imagens/Musica/ChicoBuarque/SambaEAmor.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler">
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('SambaEAmor').play()"><i class="fa-solid fa-play"></i></button>
+          <button onclick="document.getElementById('SambaEAmor').pause()"><i class="fa-solid fa-pause"></i></button>
+          <button onclick="document.getElementById('SambaEAmor').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button>
+          <button onclick="document.getElementById('SambaEAmor').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+            <br> 
+            <br>    
+
+         <div class="titulo"><h1>Ave Sangria</h1></div>
+        <section id="AveSangria">
+    <button class="cd" id="bntAveSangria" type="button">
+        <img class="disobnt" id="CdImgAveSangria" src="../Imagens/DiscoCD/CdLaranja.jpeg" width="200px" height="200px">
+    </button>
+
+    <ul id="CdAveSangria">
+<br><br>
+       <li class="borda">
+      <div class="listaMusica">
+        <h4>O Pirata</h4>
+        <audio id="OPirata">
+          <source src="../Imagens/Musica/AveSangria/OPirata.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('OPirata').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('OPirata').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('OPirata').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('OPirata').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>O Poeta</h4>
+        <audio id="OPoeta">
+          <source src="../Imagens/Musica/AveSangria/OPoeta.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('OPoeta').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('OPoeta').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('OPoeta').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('OPoeta').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Sob o Sol de Satã</h4>
+        <audio id="SoboSoldeSata">
+          <source src="../Imagens/Musica/AveSangria/SoboSoldeSata.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('SoboSoldeSata').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('SoboSoldeSata').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('SoboSoldeSata').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('SoboSoldeSata').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Três Margaridas</h4>
+        <audio id="TresMargaridas">
+          <source src="../Imagens/Musica/AveSangria/TresMargaridas.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('TresMargaridas').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('TresMargaridas').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('TresMargaridas').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('TresMargaridas').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+            <br> 
+            <br>    
+
+         <div class="titulo"><h1>Legiao Urbana</h1></div>     
+        <section id="LegiaoUrbana">
+    <button class="cd" id="bntLegiaoUrbana" type="button">
+        <img class="disobnt" id="CdImgLegiaoUrbana" src="../Imagens/DiscoCD/CdDiscoVermelho.jpeg" 
+             width="200px" height="200px">
+    </button>
+
+    <ul id="CdLegiaoUrbana">
+         <br><br>
+           
+        <li class="borda">
+      <div class="listaMusica">
+        <h4>Faroeste Caboclo</h4>
+        <audio id="FaroesteCaboclo">
+          <source src="../Imagens/Musica/LegiaoUrbana/FaroesteCaboclo.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('FaroesteCaboclo').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('FaroesteCaboclo').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('FaroesteCaboclo').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('FaroesteCaboclo').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>O Reggae</h4>
+        <audio id="OReggae">
+          <source src="../Imagens/Musica/LegiaoUrbana/OReggae.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('OReggae').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('OReggae').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('OReggae').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('OReggae').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Quase Sem Querer</h4>
+        <audio id="QuaseSemQuerer">
+          <source src="../Imagens/Musica/LegiaoUrbana/QuaseSemQuerer.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('QuaseSemQuerer').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('QuaseSemQuerer').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('QuaseSemQuerer').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('QuaseSemQuerer').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Tempo Perdido</h4>
+        <audio id="TempoPerdido">
+          <source src="../Imagens/Musica/LegiaoUrbana/TempoPerdido.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('TempoPerdido').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('TempoPerdido').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('TempoPerdido').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('TempoPerdido').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+            <br> 
+            <br>    
+
+         <div class="titulo"><h1>O Grilo</h1></div>
+        <section id="OGrilo">
+    <button class="cd" id="bntOGrilo" type="button">
+        <img class="disobnt" id="CdImgOGrilo" id="CdImgOGrilo" src="../Imagens/DiscoCD/CdDiscoRosa.jpeg" width="200px" height="200px">
+    </button>
+
+
+    <ul id="CdOGrilo">
+         <br><br>
+
+        <li class="borda">
+      <div class="listaMusica">
+        <h4>Contramão</h4>
+        <audio id="Contramao">
+          <source src="../Imagens/Musica/OGrilo/Contramao.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('Contramao').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('Contramao').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('Contramao').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('Contramao').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Guitarrada</h4>
+        <audio id="Guitarrada">
+          <source src="../Imagens/Musica/OGrilo/Guitarrada.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('Guitarrada').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('Guitarrada').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('Guitarrada').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('Guitarrada').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Serenata Existencialista</h4>
+        <audio id="SerenataExistencialista">
+          <source src="../Imagens/Musica/OGrilo/SerenataExistencialista.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('SerenataExistencialista').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('SerenataExistencialista').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('SerenataExistencialista').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('SerenataExistencialista').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Tira a Roupa</h4>
+        <audio id="TiraaRoupa">
+          <source src="../Imagens/Musica/OGrilo/TiraaRoupa.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('TiraaRoupa').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('TiraaRoupa').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('TiraaRoupa').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('TiraaRoupa').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Trela</h4>
+        <audio id="Trela">
+          <source src="../Imagens/Musica/OGrilo/Trela.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('Trela').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('Trela').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('Trela').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('Trela').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+            <br> 
+            <br>    
+
+            <div class="titulo"><h1>Os Paralamas Do Sucesso</h1></div>    
+        <section id="OsParalamasDoSucesso">
+    <button class="cd" id="bntOsParalamasDoSucesso" type="button">
+        <img class="disobnt" id="CdImgOsParalamasDoSucesso" src="../Imagens/DiscoCD/CdDiscoAzul.jpeg" width="200px" height="200px">
+    </button>
+
+    <ul id="CdOsParalamasDoSucesso">
+         <br><br>
+       
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>A Novidade</h4>
+        <audio id="ANovidade">
+          <source src="../Imagens/Musica/OsParalamasDoSucesso/ANovidade.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('ANovidade').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('ANovidade').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('ANovidade').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('ANovidade').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Ela Disse Adeus</h4>
+        <audio id="ElaDisseAdeus">
+          <source src="../Imagens/Musica/OsParalamasDoSucesso/ElaDisseAdeus.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('ElaDisseAdeus').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('ElaDisseAdeus').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('ElaDisseAdeus').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('ElaDisseAdeus').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Lanterna dos Afogados</h4>
+        <audio id="LanternaDosAfogados">
+          <source src="../Imagens/Musica/OsParalamasDoSucesso/LanternaDosAfogados.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('LanternaDosAfogados').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('LanternaDosAfogados').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('LanternaDosAfogados').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('LanternaDosAfogados').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Meu Erro</h4>
+        <audio id="MeuErro">
+          <source src="../Imagens/Musica/OsParalamasDoSucesso/MeuErro.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('MeuErro').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('MeuErro').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('MeuErro').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('MeuErro').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Você</h4>
+        <audio id="Voce">
+          <source src="../Imagens/Musica/OsParalamasDoSucesso/Voce.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('Voce').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('Voce').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('Voce').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('Voce').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+            <br> 
+            <br>    
+            
+            <div class="titulo"><h1>Pullovers</h1></div>
+        <section id="Pullovers">
+    <button class="cd" id="bntPullovers" type="button">
+        <img class="disobnt" id="CdImgPullovers" src="../Imagens/DiscoCD/CdEstrelasColoridas.jpeg" width="200px" height="200px">
+    </button>
+
+    <ul id="CdPullovers">
+         <br><br>
+
+       <li class="borda">
+      <div class="listaMusica">
+        <h4>Futebol de Óculos</h4>
+        <audio id="FuteboldeOculos">
+          <source src="../Imagens/Musica/Pullovers/FuteboldeOculos.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('FuteboldeOculos').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('FuteboldeOculos').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('FuteboldeOculos').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('FuteboldeOculos').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Lição de Casa</h4>
+        <audio id="LicaodeCasa">
+          <source src="../Imagens/Musica/Pullovers/LicaodeCasa.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('LicaodeCasa').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('LicaodeCasa').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('LicaodeCasa').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('LicaodeCasa').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Marcelo Ou Eu Traí o Rock</h4>
+        <audio id="MarceloOuEuTraioRock">
+          <source src="../Imagens/Musica/Pullovers/MarceloOuEuTraioRock.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('MarceloOuEuTraioRock').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('MarceloOuEuTraioRock').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('MarceloOuEuTraioRock').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('MarceloOuEuTraioRock').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>O Amor Verdadeiro Não Tem Vista Para o Mar</h4>
+        <audio id="OAmorVerdadeiroNaoTemVistaParaoMar">
+          <source src="../Imagens/Musica/Pullovers/OAmorVerdadeiroNaoTemVistaParaoMar.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('OAmorVerdadeiroNaoTemVistaParaoMar').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('OAmorVerdadeiroNaoTemVistaParaoMar').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('OAmorVerdadeiroNaoTemVistaParaoMar').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('OAmorVerdadeiroNaoTemVistaParaoMar').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+
+    <li class="borda">
+      <div class="listaMusica">
+        <h4>Todas as Canções São de Amor</h4>
+        <audio id="TodasasCancoesSaodeAmor">
+          <source src="../Imagens/Musica/Pullovers/TodasasCancoesSaodeAmor.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controler"> 
+        <button><i class="fa-solid fa-music"></i></button>
+            <button onclick="document.getElementById('TodasasCancoesSaodeAmor').play()"><i class="fa-solid fa-play"></i></button> 
+          <button onclick="document.getElementById('TodasasCancoesSaodeAmor').pause()"><i class="fa-solid fa-pause"></i></button> 
+          <button onclick="document.getElementById('TodasasCancoesSaodeAmor').volume += 0.1"><i class="fa-solid fa-volume-up"></i></button> 
+          <button onclick="document.getElementById('TodasasCancoesSaodeAmor').volume -= 0.1"><i class="fa-solid fa-volume-down"></i></button> 
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
 
         <script src="../Model/btnNav.js"></script>
-        <script src="../Model/CD/cdChicoBuarque.js"></script>
+        <script src="../Model/CD/cdConfig.js"></script>
 
+       </div>
+
+           <script defer></script>
+    <script type="module" src="../Model/configFirebase.js"></script>
+    <script type="module" src="../Model/logout.js"></script>
+    <script type="module" src="../Model/usuario.js"></script>
 </body>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB31IZTdVVqvpR42akBqg1MethvAozL_20",
+    authDomain: "projetopwa-1c79a.firebaseapp.com",
+    projectId: "projetopwa-1c79a",
+    storageBucket: "projetopwa-1c79a.firebasestorage.app",
+    messagingSenderId: "262652544848",
+    appId: "1:262652544848:web:da4b58af50dbdfccd28e55",
+    measurementId: "G-SQJPC0BCWX"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // 🔹 Verifica se o usuário está logado
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      // Se não estiver logado, redireciona para login
+      window.location.href = "Cadastro.html"; // ou login.html
+    } else {
+      console.log("Usuário autenticado:", user.email);
+      // Aqui você pode carregar o conteúdo da página normalmente
+    }
+  });
+</script>
 </html>

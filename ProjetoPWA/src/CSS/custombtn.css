@@ -1,0 +1,55 @@
+.borda {
+  background-color: var( --color-principal-0);;
+  border: 2px solid var( --color-principal-0);;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;   
+  width: 300px;
+}
+
+.listaMusica {
+  margin: 0;
+  padding: 0;
+  width: 100%;   
+}
+
+.listaMusica h4{
+    color: var(--color-principal-2);
+    position: relative;
+    justify-content: start;
+    margin: 0;
+    justify-content: baseline;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;    
+  overflow: hidden;
+  word-break: break-word;
+}
+
+
+
+.controler {
+  display: flex;
+  gap: 5px;
+}
+
+.controler button {
+  background-color: var(--color-principal-2);
+  color: var( --color-principal-0);
+  border: none;
+  width: 60px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  border-radius: 0;
+}
+
+.listaMusica button:hover { background-color: var(--color-segundarias-1); transform: scale(1.05); color: var(--color-principal-2);}
+.listaMusica button:active { transform: scale(0.95); }
+
+.controler button:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+.controler button:last-child  { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }

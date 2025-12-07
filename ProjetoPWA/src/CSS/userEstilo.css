@@ -1,0 +1,106 @@
+
+.UserFundo {
+  border-radius: 10%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%; 
+  height: 70dvb;    
+  max-width: 600px;       
+  background-color: rgb(228, 228, 208);
+  position: relative;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 15px 0;  
+  color: var(--color-principal-0);
+  text-align: center;
+}
+
+div {
+  font-size: large;
+  font-weight: bolder;
+  color: var(--color-principal-0);
+}
+
+.icon {
+  border-radius: 40%;
+  width: 120px;   
+  height: 120px;
+  display: block;   
+  margin: 20px auto; 
+}
+
+
+
+.botao {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;      
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.opc {
+  background-color: var(--color-segundarias-1);
+  cursor: pointer;
+  border: 2px solid var(--color-segundarias-1);
+  padding: 10px;
+  border-radius: 20px;
+  width: 120px;
+  flex: 1 1 auto;    
+font-weight:bold;
+color: var(--color-principal-2);
+
+  &:hover{
+    background-color: var(--color-principal-4);
+  border: 2px solid var(--color-principal-4);
+    color: var(--color-terceiras-0);
+}
+}
+
+span {
+  color: var(--color-segundarias-1);
+}
+
+@media (min-width: 771px) {
+  .UserFundo {
+    width: 80%;
+    max-width: 600px;
+    top: 50px;
+  }
+
+  .icon {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 710px) {
+  .UserFundo {
+    width: 95%;
+    padding: 15px;
+    top: 50px;
+  }
+
+  .icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .botao {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .opc {
+    width: 100%;      
+  }
+}
+
+

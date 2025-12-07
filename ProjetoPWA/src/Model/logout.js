@@ -1,7 +1,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-    import { getAuth,onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-    import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+    
   
   const firebaseConfig = {
     apiKey: "AIzaSyB31IZTdVVqvpR42akBqg1MethvAozL_20",
@@ -24,7 +24,7 @@
     localStorage.removeItem('logadoUserID');
     signOut(auth)
     .then(()=>{
-        window.location.href='index.html';
+        window.location.href='cadastro.html';
     })
     .catch((error)=>{
         console.error('Erro ao deslogar:', error);
