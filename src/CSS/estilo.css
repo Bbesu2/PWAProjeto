@@ -38,7 +38,7 @@
 @media (min-width: 771px) {
   .fundo {
     opacity: 60%;
-    background-image: url("../Imagens/fundoDesktop.jpeg"); /* 🔹 imagem para desktop */
+    background-image: url("../Imagens/fundoDesktop.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -51,7 +51,7 @@
 
   .fundoCadastro {
     opacity: 60%;
-    background-image: url("../Imagens/fundoDesktop.jpeg"); /* 🔹 imagem para desktop */
+    background-image: url("../Imagens/fundoDesktop.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
