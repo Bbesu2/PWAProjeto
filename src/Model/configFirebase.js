@@ -29,35 +29,26 @@
 
 
     //Criacao de usario - registando usuario
-      createUserWithEmailAndPassword(auth, email, senha)
-    .then((userCredential)=>{
-        const user=userCredential.user;
-        const userData={
-            email: email,
-            nome: nome,
-            apelido : apelido
-        };
-        console.log('Conta criada com sucesso!');
-        const docRef=doc(db, "users", user.uid);
-        setDoc(docRef,userData)
-        .then(()=>{
-            window.location.href='Cadastro.html';
-        })
-        .catch((error)=>{
-            console.error("Erro ao escrever o", error);
-
-    })
-
-    .catch((error)=>{
-        const errorCode= error.code;
-        if(errorCode=='auth/email-already-in-use'){
-            console.log('O e-mail registrado ja esta em uso');
-        }
-        else{
-            console.log('Incapz de criar o usuario');}
-    })
+createUserWithEmailAndPassword(auth, email, senha)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    const userData = { email, nome, apelido };
+    console.log('Conta criada com sucesso!');
+    const docRef = doc(db, "users", user.uid);
+    return setDoc(docRef, userData);
   })
-});
+  .then(() => {
+    window.location.href = 'Cadastro.html';
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    if (errorCode === 'auth/email-already-in-use') {
+      console.log('O e-mail registrado já está em uso');
+    } else {
+      console.log('Incapaz de criar o usuário', error);
+    }
+  });
+
 
     //Entrando na conta - login do usuario
      const signIn=document.getElementById('SubmitBtnEntrar');
@@ -74,13 +65,17 @@
         localStorage.setItem('logadoUserID', user.uid);
         window.location.href='PaginaInicial.html';
     })
-    .catch((error)=>{
-        const errorCode=error.code;
-        if(errorCode==='auth/invalid-credential'){
-            console.log('Email ou senha incorreto');
-        }
-        else{
-            console.log('essa Conta não existe');
-        }
+    .catch((error) => {
+  const errorCode = error.code;
+  if (errorCode === 'auth/user-not-found') {
+    console.log('Essa conta não existe');
+  } else if (errorCode === 'auth/wrong-password') {
+    console.log('Senha incorreta');
+  } else if (errorCode === 'auth/invalid-email') {
+    console.log('Email inválido');
+  } else {
+    console.log('Erro ao entrar:', error);
+  }
+})
     })
- })
+        })
