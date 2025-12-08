@@ -18,19 +18,8 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-async function configurePersistence() {
-  try {
-    await setPersistence(auth, browserSessionPersistence);
-    console.log("Persistência: sessão");
-  } catch (err) {
-    console.warn("Sessão indisponível, caindo para memória:", err.code, err.message);
-    await setPersistence(auth, inMemoryPersistence);
-    console.log("Persistência: memória (sem salvar sessão)");
-  }
-}
-configurePersistence();
 
-    
+
   const singUp= document.getElementById('SubmitBtnCadastrar');
  singUp.addEventListener('click', (event)=>{
     event.preventDefault();
