@@ -8,8 +8,8 @@ const urlsToCache = [
   './src/View/Atualizar.html',
   './src/View/PaginaInicial.html',
   './src/View/Usuario.html',
-  './PWAProjeto/icons/icon-48.png',
-  './PWAProjeto/icons/icon-256.png'
+  './icons/icon-48.png',
+  './icons/icon-256.png'
 ];
 
 self.addEventListener('install', (event) => {
