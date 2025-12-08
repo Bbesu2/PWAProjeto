@@ -80,7 +80,7 @@
             console.log('Email ou senha incorreto');
         }
         else{
-            console.log('essa Connta não existe');
+            console.log('essa Conta não existe');
         }
     })
  })
