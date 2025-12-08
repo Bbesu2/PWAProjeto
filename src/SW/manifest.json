@@ -1,7 +1,7 @@
 {
 "name": "Musicas Brasileiras",
 "short_name": "MusicasBR",
-"start_url": "cadastro.html",
+"start_url": "index.html",
 "display": "standalone",
 "icons":[
     {

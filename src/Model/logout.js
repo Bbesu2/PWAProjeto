@@ -24,7 +24,7 @@
     localStorage.removeItem('logadoUserID');
     signOut(auth)
     .then(()=>{
-        window.location.href='cadastro.html';
+        window.location.href='Cadastro.html';
     })
     .catch((error)=>{
         console.error('Erro ao deslogar:', error);

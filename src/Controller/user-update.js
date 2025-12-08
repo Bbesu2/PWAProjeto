@@ -31,7 +31,7 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     console.log("Nenhum usuário logado.");
-    window.location.href = "cadastro.html";
+    window.location.href = "Cadastro.html";
     return;
   }
 
@@ -62,7 +62,7 @@ onAuthStateChanged(auth, async (user) => {
       await deleteDoc(doc(db, "users", user.uid));
       await user.delete();
       alert("Conta excluída com sucesso!");
-      window.location.href = "cadastro.html";
+      window.location.href = "Cadastro.html";
     } catch (error) {
       console.error("Erro ao excluir:", error);
       if (error.code === "auth/requires-recent-login") {
@@ -73,7 +73,7 @@ onAuthStateChanged(auth, async (user) => {
           await user.delete();
           await deleteDoc(doc(db, "users", user.uid));
           alert("Conta excluída com sucesso!");
-          window.location.href = "cadastro.html";
+          window.location.href = "Cadastro.html";
         } else {
           alert("Exclusão cancelada.");
         }
