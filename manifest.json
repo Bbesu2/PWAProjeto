@@ -3,14 +3,15 @@
 "short_name": "Musicas",
 "start_url": "index.html",
 "display": "standalone",
+"scope": "/PWAProjeto /",
 "icons":[
         {
-      "src": "https://bbesu2.github.io/PWAProjeto/icons/icon-48.png",
+      "src": "/PWAProjeto/icons/icon-48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "https://bbesu2.github.io/PWAProjeto/icons/icon-256.png",
+      "src": "/PWAProjeto/icons/icon-256.png",
       "sizes": "256x256",
       "type": "image/png"
     }
