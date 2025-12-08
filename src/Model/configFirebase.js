@@ -17,6 +17,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+
 async function configurePersistence() {
   try {
     await setPersistence(auth, browserSessionPersistence);
@@ -29,85 +30,74 @@ async function configurePersistence() {
 }
 configurePersistence();
 
-function safeSetLocal(key, value) {
-  try {
-    localStorage.setItem(key, value);
-  } catch (e) {
-    console.warn("localStorage indisponível:", e);
-  }
-}
+    
+  const singUp= document.getElementById('SubmitBtnCadastrar');
+ singUp.addEventListener('click', (event)=>{
+    event.preventDefault();
+    const email = document.getElementById('emailUser').value;
+    const senha = document.getElementById('senhaUser').value;
+    const apelido = document.getElementById('apelidoUser').value;
+    const nome = document.getElementById('nomeUser').value;
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    safeSetLocal("logadoUserID", user.uid);
-   window.location.href = "PaginaInicial.html";
-  }
+    const auth = getAuth();
+    const db=getFirestore();
+
+
+    //Criacao de usario - registando usuario
+      createUserWithEmailAndPassword(auth, email, senha)
+    .then((userCredential)=>{
+        const user=userCredential.user;
+        const userData={
+            email: email,
+            nome: nome,
+            apelido : apelido
+        };
+        console.log('Conta criada com sucesso!');
+        const docRef=doc(db, "users", user.uid);
+        setDoc(docRef,userData)
+        .then(()=>{
+            window.location.href='Cadastro.html';
+        })
+        .catch((error)=>{
+            console.error("Erro ao escrever o", error);
+
+    })
+
+    .catch((error)=>{
+        const errorCode= error.code;
+        if(errorCode=='auth/email-already-in-use'){
+            console.log('O e-mail registrado ja esta em uso');
+        }
+        else{
+            console.log('Incapz de criar o usuario');}
+    })
+  })
 });
 
-    document.addEventListener("DOMContentLoaded", () => {
-  const signUpBtn = document.getElementById("SubmitBtnCadastrar");
-  const signInBtn = document.getElementById("SubmitBtnEntrar");
+    //Entrando na conta - login do usuario
+     const signIn=document.getElementById('SubmitBtnEntrar');
+ signIn.addEventListener('click', (event)=>{
+    event.preventDefault();
+    const email=document.getElementById('emailUser').value;
+    const senha=document.getElementById('senhaUser').value;
+    const auth=getAuth();
 
-  // Cadastro
-  if (signUpBtn) {
-    signUpBtn.addEventListener("click", async (event) => {
-      event.preventDefault();
-      const email = document.getElementById("emailUser")?.value || "";
-      const senha = document.getElementById("senhaUser")?.value || "";
-      const apelido = document.getElementById("apelidoUser")?.value || "";
-      const nome = document.getElementById("nomeUser")?.value || "";
-
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
-        const user = userCredential.user;
-
-        const userData = { email, nome, apelido };
-        console.log("Conta criada com sucesso!");
-
-        const docRef = doc(db, "users", user.uid);
-        await setDoc(docRef, userData);
-
-        window.location.href = "Cadastro.html";
-      } catch (error) {
-        const code = error.code;
-        if (code === "auth/email-already-in-use") {
-          console.log("O e-mail registrado já está em uso");
-        } else if (code === "auth/weak-password") {
-          console.log("Senha fraca: use uma senha mais forte");
-        } else if (code === "auth/invalid-email") {
-          console.log("E-mail inválido");
-        } else {
-          console.error("Erro ao criar usuário:", code, error.message);
+    signInWithEmailAndPassword(auth, email,senha)
+    .then((userCredential)=>{
+        console.log('Login feito com sucesso');
+        const user=userCredential.user;
+        localStorage.setItem('logadoUserID', user.uid);
+        window.location.href='PaginaInicial.html';
+    })
+    .catch((error)=>{
+        const errorCode=error.code;
+        if(errorCode==='auth/invalid-credential'){
+            console.log('Email ou senha incorreto');
         }
-      }
-    });
-  }
-
-  // Login
-  if (signInBtn) {
-    signInBtn.addEventListener("click", async (event) => {
-      event.preventDefault();
-      const email = document.getElementById("emailUser")?.value || "";
-      const senha = document.getElementById("senhaUser")?.value || "";
-
-      try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, senha);
-        console.log("Login feito com sucesso");
-        const user = userCredential.user;
-        safeSetLocal("logadoUserID", user.uid);
-        window.location.href = "PaginaInicial.html";
-      } catch (error) {
-        const code = error.code;
-        if (code === "auth/invalid-credential" || code === "auth/wrong-password") {
-          console.log("Email ou senha incorreto");
-        } else if (code === "auth/user-not-found") {
-          console.log("Essa conta não existe");
-        } else if (code === "auth/network-request-failed") {
-          console.log("Falha de rede: verifique sua conexão");
-        } else {
-          console.error("Erro no login:", code, error.message);
+        else{
+            console.log('essa Conta não existe');
         }
-      }
-    });
-  }
-});
+    })
+ })
+
+ 
