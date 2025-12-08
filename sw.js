@@ -2,16 +2,15 @@
 const CACHE_NAME = 'my-cache-v1';
 
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/src/View/Atualizar.html',
-  '/src/View/Cadastro.html',
-  '/src/View/PaginaInicial.html',
-  '/src/View/Usuario.html',
-  '/icons/icon-256.png',
-  '/icons/icon-48.png',
+  './',
+  './index.html',
+  './src/View/Cadastro.html',
+  './src/View/Atualizar.html',
+  './src/View/PaginaInicial.html',
+  './src/View/Usuario.html',
+  './icons/icon-48.png',
+  './icons/icon-256.png'
 ];
-
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
