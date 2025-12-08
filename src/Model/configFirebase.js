@@ -2,6 +2,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
     import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+    import { setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
   
   const firebaseConfig = {
     apiKey: "AIzaSyB31IZTdVVqvpR42akBqg1MethvAozL_20",
@@ -84,3 +85,25 @@
         }
     })
  })
+
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    const email = document.getElementById("emailUser").value;
+    const senha = document.getElementById("senhaUser").value;
+
+    return signInWithEmailAndPassword(auth, email, senha);
+  })
+  .then((userCredential) => {
+    console.log("Login feito com sucesso");
+    const user = userCredential.user;
+    localStorage.setItem("logadoUserID", user.uid);
+    window.location.href = "PaginaInicial.html";
+  })
+  .catch((error) => {
+    console.error("Erro no login:", error.code, error.message);
+    if (error.code === "auth/invalid-credential") {
+      console.log("Email ou senha incorreto");
+    } else {
+      console.log("Essa conta não existe");
+    }
+  });
