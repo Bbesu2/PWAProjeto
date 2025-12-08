@@ -8,8 +8,8 @@ const urlsToCache = [
   './src/View/Atualizar.html',
   './src/View/PaginaInicial.html',
   './src/View/Usuario.html',
-  'https://bbesu2.github.io/PWAProjeto/icons/icon-48.png',
-  'https://bbesu2.github.io/PWAProjeto/icons/icon-256.png'
+  'https://github.com/Bbesu2/PWAProjeto/blob/main/icons/icon-48.png',
+  'https://github.com/Bbesu2/PWAProjeto/blob/main/icons/icon-256.png'
 ];
 
 self.addEventListener('install', (event) => {
