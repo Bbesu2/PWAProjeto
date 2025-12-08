@@ -3,12 +3,14 @@ const CACHE_NAME = 'my-cache-v1';
 
 const urlsToCache = [
   '/',
+  '/index.html',
   '../view/Atualizar.html',
   '../view/Cadastro.html',
   '../view/PaginaInicial.html',
   '../view/Usuario.html',
   '/icons/icon-256.png',
-  '/icons/icon-48.png'
+  '/icons/icon-48.png',
+  '/icons/logo.png'
 ];
 
 self.addEventListener('install', event => {
