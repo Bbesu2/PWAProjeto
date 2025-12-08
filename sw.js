@@ -4,10 +4,10 @@ const CACHE_NAME = 'my-cache-v1';
 const urlsToCache = [
   './',
   './index.html',
-  './src/View/Cadastro.html',
-  './src/View/Atualizar.html',
-  './src/View/PaginaInicial.html',
-  './src/View/Usuario.html',
+  './Cadastro.html',
+  './Atualizar.html',
+  './PaginaInicial.html',
+  './Usuario.html',
   '/PWAProjeto/icons/icon-48.png',
   '/PWAProjeto/icons/icon-256.png'
 ];
