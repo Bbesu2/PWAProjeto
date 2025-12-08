@@ -1,7 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, inMemoryPersistence, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+    import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+  
   const firebaseConfig = {
     apiKey: "AIzaSyB31IZTdVVqvpR42akBqg1MethvAozL_20",
     authDomain: "projetopwa-1c79a.firebaseapp.com",
@@ -12,13 +13,8 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12
     measurementId: "G-SQJPC0BCWX"
   };
 
-// Inicializa Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-
-
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
 
   const singUp= document.getElementById('SubmitBtnCadastrar');
  singUp.addEventListener('click', (event)=>{
@@ -88,5 +84,3 @@ const db = getFirestore(app);
         }
     })
  })
-
- 
