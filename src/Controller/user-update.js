@@ -49,8 +49,8 @@ onAuthStateChanged(auth, async (user) => {
       document.getElementById("novoApelidoUser").value = data.apelido ?? "";
       document.getElementById("novoEmailUser").value = user.email ?? data.email ?? "";
     }
-  } catch (err) {
-    console.error("Erro ao carregar dados:", err);
+  } catch (error) {
+    console.error("Erro ao carregar dados:", error);
   }
 
   cancelBtn?.addEventListener("click", () => {
