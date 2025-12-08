@@ -68,6 +68,15 @@ input {
   text-align: center;
 }
 
+a.opc{
+  text-decoration: none;
+}
+
+a.opc{
+  width: 40%;
+  height: 40px;
+}
+
 .opc:hover, .opcCad:hover {
   background-color: var(--color-principal-4);
   border: 2px solid var(--color-principal-4);

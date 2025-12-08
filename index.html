@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./src/CSS/estilo.css">
         <link rel="stylesheet" href=".//PWAProjeto/src/CSS/estilo.css">
     <script type="module" src="./src/Model/configFirebase.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,70 +13,15 @@
 <body>
     <div class="preto"></div>
   <div class="fundoCadastro"></div>
+<div class="UserFundo">
+    <h1 style="width: 50%;">Clique aqui para ir ao site</h1>
 
-  <h1>Clique aqui para ir ao site</h1>
-<a class="inicio" href="./src/View/Cadastro.html">
+  <div class="botao">
+<a  class="opc" href="./src/View/Cadastro.html">
    Ir para Cadastro
 </a>
+</div>
+</div>
 
-<style>
-
-  
-.inicio{
-   display:inline-block; width:10%;
-    height:10%; 
-    text-align:center; 
-    line-height:200%;
-     background-color:#007BFF;
-      color:white; 
-      text-decoration:none; border-radius:5px;
-    width: 1000px;
-    height: 1000px;
-}
-
-.preto{
-    background-color: black;
-    width: 100%;
-    height: 100%;
-        position: fixed;   
-    z-index: -1;
-        top: 0;
-    left: 0;
-
-
-}
-
-    @media (max-width: 770px) {
-  .fundoCadastro{
-    
-    opacity: 60%;
-    background-image: url("./src/Imagens/fundoCel.jpeg");
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-
-  }
-}
-
-@media (min-width: 771px) {
-  .fundoCadastro {
-     opacity: 60%;
-    background-image: url("./src/Imagens/fundoDesktop.jpeg");
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-}
-</style>
 </body>
 </html>
