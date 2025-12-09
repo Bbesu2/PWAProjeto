@@ -17,13 +17,12 @@
   <div class="fundo"></div>
 
   <header>
-        <nav class="navbar">
-                <div class="logo">
-                <img  
+     <nav class="navbar">
+            <img  
                 src="./src/Imagens/logo.png"
                 alt="Logo Pagina"
                 class="logo">
-                </div>
+
                 <button class="btn btn-nav">
                     <i class="fa-bars fa-solid" style="color: #e7dba3;"></i>
                 </button>
@@ -75,16 +74,13 @@
     </div>
   </div>
 
-
-  <script type="module" src="/src/Controller/userConfig.js"></script>
   <script type="module">
     const btn = document.getElementById("SubmitBtnAtualizar");
     btn?.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "./Atualizar.html";
+      window.location.href = "/Atualizar.html";
     });
   </script>
-
 
   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
@@ -106,7 +102,7 @@
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       console.log("nenhuma conta encontrada")
-      window.location.href = "./Cadastro.html";
+      window.location.href = "Cadastro.html";
     } else {
       console.log("Usuário autenticado:", user.email);
     
