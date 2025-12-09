@@ -31,19 +31,19 @@ singUp.addEventListener('click', (event) => {
     .then((userCredential) => {
       const user = userCredential.user;
       const userData = { email, nome, apelido };
-      console.log('Conta criada com sucesso!');
+      alert('Conta criada com sucesso!');
       const docRef = doc(db, "users", user.uid);
       return setDoc(docRef, userData);
     })
     .then(() => {
-      window.location.href = 'Cadastro.html';
+      window.location.href = './Cadastro.html';
     })
     .catch((error) => {
       const errorCode = error.code;
       if (errorCode === 'auth/email-already-in-use') {
-        console.log('O e-mail registrado já está em uso');
+        alert('O e-mail registrado já está em uso');
       } else {
-        console.log('Incapaz de criar o usuário', error);
+        alert('Incapaz de criar o usuário', error);
       }
     });
 });
@@ -58,21 +58,21 @@ signIn.addEventListener('click', (event) => {
 
   signInWithEmailAndPassword(auth, email, senha)
     .then((userCredential) => {
-      console.log('Login feito com sucesso');
+      alert('Login feito com sucesso');
       const user = userCredential.user;
       localStorage.setItem('logadoUserID', user.uid);
-      window.location.href = 'PaginaInicial.html';
+      window.location.href = './PaginaInicial.html';
     })
     .catch((error) => {
       const errorCode = error.code;
       if (errorCode === 'auth/user-not-found') {
-        console.log('Essa conta não existe');
+        alert('Essa conta não existe');
       } else if (errorCode === 'auth/wrong-password') {
-        console.log('Senha incorreta');
+        alert('Senha incorreta');
       } else if (errorCode === 'auth/invalid-email') {
-        console.log('Email inválido');
+        alert('Email inválido');
       } else {
-        console.log('Erro ao entrar:', error);
+        alert('Erro ao entrar:', error);
       }
     });
 });

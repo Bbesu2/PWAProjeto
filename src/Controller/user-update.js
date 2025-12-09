@@ -31,7 +31,7 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     console.log("Nenhum usuário logado.");
-    window.location.href = "Cadastro.html";
+    window.location.href = "./Cadastro.html";
     return;
   }
 
@@ -54,7 +54,7 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   cancelBtn?.addEventListener("click", () => {
-    window.location.href = "Usuario.html";
+    window.location.href = "./Usuario.html";
   });
 
   deleteBtn?.addEventListener("click", async () => {
@@ -62,7 +62,7 @@ onAuthStateChanged(auth, async (user) => {
       await deleteDoc(doc(db, "users", user.uid));
       await user.delete();
       alert("Conta excluída com sucesso!");
-      window.location.href = "Cadastro.html";
+      window.location.href = "./Cadastro.html";
     } catch (error) {
       console.error("Erro ao excluir:", error);
       if (error.code === "auth/requires-recent-login") {
@@ -73,7 +73,7 @@ onAuthStateChanged(auth, async (user) => {
           await user.delete();
           await deleteDoc(doc(db, "users", user.uid));
           alert("Conta excluída com sucesso!");
-          window.location.href = "Cadastro.html";
+          window.location.href = "./Cadastro.html";
         } else {
           alert("Exclusão cancelada.");
         }
@@ -101,6 +101,8 @@ onAuthStateChanged(auth, async (user) => {
         await setDoc(docRef, updates, { merge: true });
       }
 
+
+      // Ignora essa parte, isso aqui era para atualizar email, mas não tive tempo para configurar e preferi só deixar aqui, caso eu atualize o doc ja ta o codigo pronto
       if (novoEmail && novoEmail !== user.email) {
         const confirmar = confirm(`Deseja realmente alterar seu e‑mail para ${novoEmail}?`);
         if (confirmar) {
@@ -127,11 +129,11 @@ onAuthStateChanged(auth, async (user) => {
         }
       }
 
-      console.log("Dados atualizados com sucesso!");
-      window.location.href = "Usuario.html"; 
+      alert("Dados atualizados com sucesso!");
+      window.location.href = "./Usuario.html"; 
     } catch (error) {
       console.error("Erro ao atualizar:", error);
-      console.log("Erro ao atualizar: " + error.message);
+      alert("Erro ao atualizar: " + error.message);
     }
   });
 });
