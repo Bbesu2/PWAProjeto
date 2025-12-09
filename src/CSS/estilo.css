@@ -7,7 +7,7 @@
 @import url(../CSS/FormsEstilo.css);
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-device-width: 767px) {
   .fundo {
     opacity: 0.6;
 background-image: url("./src/Imagens/fundoCel.jpeg");
@@ -35,7 +35,7 @@ background-image: url("./src/Imagens/fundoCel.jpeg");
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-device-width: 768px) {
   .fundo {
     opacity: 0.6;
     background-image: url("./src/Imagens/fundoDesktop.jpeg");
