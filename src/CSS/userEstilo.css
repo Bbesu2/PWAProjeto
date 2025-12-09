@@ -70,7 +70,7 @@ span {
 
 @media (min-width: 771px) {
   .UserFundo {
-    width: 80%;
+    width: 80dvw;
     max-width: 600px;
     top: 50px;
   }
@@ -83,7 +83,7 @@ span {
 
 @media (max-width: 710px) {
   .UserFundo {
-    width: 95%;
+    width: 95dvw;
     padding: 15px;
     top: 50px;
   }

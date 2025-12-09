@@ -20,8 +20,7 @@ header {
   transition: color 0.3s ease;
 }
 
-@media (min-width: 695px) {
-@media (min-width: 695px) {
+@media screen and (min-device-width: 768px) {
 
   .navbar {
     display: flex;
@@ -74,9 +73,7 @@ header {
   }
 }
 
-}
-
-@media (max-width: 694px) {
+@media screen and (max-device-width: 767px) {
   
   .logo {
     height: 80px;
