@@ -28,17 +28,14 @@ singUp.addEventListener('click', (event) => {
   const db = getFirestore();
 
   createUserWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      const userData = { email, nome, apelido };
-      alert('Conta criada com sucesso!');
-      const docRef = doc(db, "users", user.uid);
-      return setDoc(docRef, userData);
-    })
-    .then(() => {
-      window.location.href = './Cadastro.html';
-    })
-    .catch((error) => {
+  .then(async (userCredential) => {
+    const user = userCredential.user;
+    const userData = { email, nome, apelido };
+    await setDoc(doc(db, "users", user.uid), userData);
+    alert('Conta criada com sucesso!');
+    window.location.href = './Cadastro.html';
+  })
+  .catch((error) => {
       const errorCode = error.code;
       if (errorCode === 'auth/email-already-in-use') {
         alert('O e-mail registrado já está em uso');
