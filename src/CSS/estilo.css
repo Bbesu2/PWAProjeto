@@ -10,7 +10,7 @@
 @media screen and (max-width: 767px) {
   .fundo {
     opacity: 0.6;
-background-image: url("../src/Imagens/fundoCel.jpeg");
+background-image: url("/src/Imagens/fundoCel.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -23,7 +23,7 @@ background-image: url("../src/Imagens/fundoCel.jpeg");
 
   .fundoCadastro{
         opacity: 0.6;
-background-image: url("../src/Imagens/fundoCel.jpeg");
+background-image: url("/src/Imagens/fundoCel.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -38,7 +38,7 @@ background-image: url("../src/Imagens/fundoCel.jpeg");
 @media screen and (min-width: 768px) {
   .fundo {
     opacity: 0.6;
-    background-image: url("./src/Imagens/fundoDesktop.jpeg");
+    background-image: url("/src/Imagens/fundoDesktop.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -51,7 +51,7 @@ background-image: url("../src/Imagens/fundoCel.jpeg");
 
   .fundoCadastro {
     opacity: 0.6;
-    background-image: url("./src/Imagens/fundoDesktop.jpeg");
+    background-image: url("/src/Imagens/fundoDesktop.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
