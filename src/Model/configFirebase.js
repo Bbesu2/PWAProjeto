@@ -73,14 +73,14 @@ signIn.addEventListener('click', async (event) => {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("Usuário autenticado:", user.email, user.uid);
-    if (window.location.pathname.includes("Login.html") || 
+    if (window.location.pathname.includes("Cadastro.html") || 
         window.location.pathname.includes("Cadastro.html")) {
       window.location.href = "./PaginaInicial.html";
     }
   } else {
     console.log("Nenhum usuário logado");
     if (window.location.pathname.includes("PaginaInicial.html")) {
-      window.location.href = "./Login.html";
+      window.location.href = "./Cadastro.html";
     }
   }
 });

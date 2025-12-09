@@ -36,7 +36,7 @@
                 }
                 })
                 .catch((error)=>{
-                    console.log("Erro ao pegar o documento");
+                    console.log("Erro ao pegar o documento", error);
                 })
             }else{
                     console.log("Id do usuario não encontrado no armazenamento local");

@@ -6,7 +6,7 @@
     <link rel="manifest" href="manifest.json">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script type="module" src="./src/Controller/user-update.js" defer></script>
+  <script type="module" src="./src/Controller/userConfig.js" defer></script>
     <link rel="stylesheet" href="./src/CSS/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="manifest" href="https://bbesu2.github.io/PWAProjeto/manifest.json">
@@ -106,7 +106,7 @@
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       console.log("nenhuma conta encontrada")
-      window.location.href = "Cadastro.html";
+      window.location.href = "./Cadastro.html";
     } else {
       console.log("Usuário autenticado:", user.email);
     
