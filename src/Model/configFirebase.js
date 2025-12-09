@@ -1,5 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -14,62 +19,68 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 // Cadastro
 const singUp = document.getElementById('SubmitBtnCadastrar');
-singUp.addEventListener('click', (event) => {
+singUp.addEventListener('click', async (event) => {
   event.preventDefault();
   const email = document.getElementById('emailUser').value;
   const senha = document.getElementById('senhaUser').value;
   const apelido = document.getElementById('apelidoUser').value;
   const nome = document.getElementById('nomeUser').value;
 
-  const auth = getAuth();
-  const db = getFirestore();
-
-  createUserWithEmailAndPassword(auth, email, senha)
-  .then(async (userCredential) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
     const user = userCredential.user;
     const userData = { email, nome, apelido };
     await setDoc(doc(db, "users", user.uid), userData);
     alert('Conta criada com sucesso!');
-    window.location.href = './Cadastro.html';
-  })
-  .catch((error) => {
-      const errorCode = error.code;
-      if (errorCode === 'auth/email-already-in-use') {
-        alert('O e-mail registrado já está em uso');
-      } else {
-        alert('Incapaz de criar o usuário', error);
-      }
-    });
+  } catch (error) {
+    if (error.code === 'auth/email-already-in-use') {
+      alert('O e-mail registrado já está em uso');
+    } else {
+      alert('Incapaz de criar o usuário: ' + error.message);
+    }
+  }
 });
 
 // Login
 const signIn = document.getElementById('SubmitBtnEntrar');
-signIn.addEventListener('click', (event) => {
+signIn.addEventListener('click', async (event) => {
   event.preventDefault();
   const email = document.getElementById('emailUser').value;
   const senha = document.getElementById('senhaUser').value;
-  const auth = getAuth();
 
-  signInWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      alert('Login feito com sucesso');
-      const user = userCredential.user;
-      localStorage.setItem('logadoUserID', user.uid);
-      window.location.href = './PaginaInicial.html';
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      if (errorCode === 'auth/user-not-found') {
-        alert('Essa conta não existe');
-      } else if (errorCode === 'auth/wrong-password') {
-        alert('Senha incorreta');
-      } else if (errorCode === 'auth/invalid-email') {
-        alert('Email inválido');
-      } else {
-        alert('Erro ao entrar:', error);
-      }
-    });
+  try {
+    await signInWithEmailAndPassword(auth, email, senha);
+    alert('Login feito com sucesso');
+  } catch (error) {
+    if (error.code === 'auth/user-not-found') {
+      alert('Essa conta não existe');
+    } else if (error.code === 'auth/wrong-password') {
+      alert('Senha incorreta');
+    } else if (error.code === 'auth/invalid-email') {
+      alert('Email inválido');
+    } else {
+      alert('Erro ao entrar: ' + error.message);
+    }
+  }
+});
+
+// Observa mudanças de autenticação
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Usuário autenticado:", user.email, user.uid);
+    if (window.location.pathname.includes("Login.html") || 
+        window.location.pathname.includes("Cadastro.html")) {
+      window.location.href = "./PaginaInicial.html";
+    }
+  } else {
+    console.log("Nenhum usuário logado");
+    if (window.location.pathname.includes("PaginaInicial.html")) {
+      window.location.href = "./Login.html";
+    }
+  }
 });
