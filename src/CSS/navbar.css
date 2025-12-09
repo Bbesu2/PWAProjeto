@@ -76,7 +76,7 @@ header {
 @media screen and (max-device-width: 767px) {
   
   .logo {
-    height: 100px;
+    height: 80px;
     position: relative;
     z-index: 2;
   }
