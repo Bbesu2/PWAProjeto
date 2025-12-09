@@ -20,6 +20,7 @@ header {
   transition: color 0.3s ease;
 }
 
+
 @media screen and (min-device-width: 768px) {
 
   .navbar {
