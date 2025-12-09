@@ -7,10 +7,10 @@
 @import url(../CSS/FormsEstilo.css);
 
 
-@media screen and(max-width: 767px) {
+@media screen and (max-width: 767px) {
   .fundo {
-    opacity: 60%;
-    background-image: url("../Imagens/fundoCel.jpeg");
+    opacity: 0.6;
+background-image: url("../src/Imagens/fundoCel.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -22,8 +22,8 @@
   }
 
   .fundoCadastro{
-        opacity: 60%;
-    background-image: url("../Imagens/fundoCel.jpeg");
+        opacity: 0.6;
+background-image: url("../src/Imagens/fundoCel.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -35,10 +35,10 @@
   }
 }
 
-@media screen and(min-width: 768px) {
+@media screen and (min-width: 768px) {
   .fundo {
-    opacity: 60%;
-    background-image: url("../Imagens/fundoDesktop.jpeg");
+    opacity: 0.6;
+    background-image: url("./src/Imagens/fundoDesktop.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -50,8 +50,8 @@
   }
 
   .fundoCadastro {
-    opacity: 60%;
-    background-image: url("../Imagens/fundoDesktop.jpeg");
+    opacity: 0.6;
+    background-image: url("./src/Imagens/fundoDesktop.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
