@@ -50,7 +50,7 @@ singUp.addEventListener('click', async (event) => {
 const signIn = document.getElementById('SubmitBtnEntrar');
 signIn.addEventListener('click', async (event) => {
   event.preventDefault();
-  const email = document.getElementById('emailUser').value;
+  const email = document.getElementById('emailUser').value.trim();
   const senha = document.getElementById('senhaUser').value;
 
   try {
