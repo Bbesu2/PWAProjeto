@@ -79,7 +79,7 @@
     const btn = document.getElementById("SubmitBtnAtualizar");
     btn?.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "/Atualizar.html";
+      window.location.href = "./Atualizar.html";
     });
 </script>
 
@@ -88,7 +88,7 @@
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       console.log("nenhuma conta encontrada")
-      window.location.href = "Cadastro.html";
+      window.location.href = "./Cadastro.html";
     } else {
       console.log("Usuário autenticado:", user.email);
     
