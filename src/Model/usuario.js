@@ -13,8 +13,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebas
   };
 
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth();
-  const db = getFirestore();
+  const auth = getAuth(app);
+  const db = getFirestore(app);
 
   onAuthStateChanged(auth, async (user) => {
     const logadoUserID = localStorage.getItem('logadoUserID');
