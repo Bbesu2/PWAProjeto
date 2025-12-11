@@ -77,19 +77,36 @@
   </div>
 
 <script type="module">
-    const btn = document.getElementById("SubmitBtnAtualizar");
-    btn?.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = "./Atualizar.html";
-    });
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { 
+  getAuth, onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-      onAuthStateChanged(auth, (user) => {
+const firebaseConfig = {
+  apiKey: "AIzaSyB31IZTdVVqvpR42akBqg1MethvAozL_20",
+  authDomain: "projetopwa-1c79a.firebaseapp.com",
+  projectId: "projetopwa-1c79a",
+  storageBucket: "projetopwa-1c79a.appspot.com",
+  messagingSenderId: "262652544848",
+  appId: "1:262652544848:web:da4b58af50dbdfccd28e55",
+  measurementId: "G-SQJPC0BCWX"
+};
+
+  const app = initializeApp(firebaseConfig);
+  const auth=getAuth(app);
+
+  const btn = document.getElementById("SubmitBtnAtualizar");
+  btn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "./Atualizar.html";
+  });
+
+  onAuthStateChanged(auth, (user) => {
     if (!user) {
-      console.log("nenhuma conta encontrada")
+      console.log("nenhuma conta encontrada");
       window.location.href = "./Cadastro.html";
     } else {
       console.log("Usuário autenticado:", user.email);
-    
     }
   });
 </script>
