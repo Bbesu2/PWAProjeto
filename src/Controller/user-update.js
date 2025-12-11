@@ -12,18 +12,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    console.log("Nenhum usuário logado.");
-    window.location.href = "./Cadastro.html";
-    return;
-  }
-
-  console.log("Usuário logado:", user.email);
-
-  const form = document.getElementById("userUpdateForm");
-  const cancelBtn = document.getElementById("cancelUpdate");
-  \
 async function carregarDadosUsuario(user) {
   try {
     const snap = await getDoc(doc(db, "users", user.uid));
@@ -38,10 +26,23 @@ async function carregarDadosUsuario(user) {
   }
 }
 
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    console.log("Nenhum usuário logado.");
+    window.location.href = "./Cadastro.html";
+    return;
+  }
+
+  console.log("Usuário logado:", user.email);
+
+  const form = document.getElementById("userUpdateForm");
+  const cancelBtn = document.getElementById("cancelUpdate");
+
+  await carregarDadosUsuario(user);
+
   cancelBtn?.addEventListener("click", () => {
     window.location.href = "./Usuario.html";
   });
-
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
