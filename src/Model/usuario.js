@@ -17,7 +17,16 @@ onAuthStateChanged(auth, async (user) => {
         if (nomeEl) nomeEl.innerText = userData.nome || "";
 
         const emailEl = document.getElementById("LogadoEmailUser");
-        if (emailEl) emailEl.innerText = userData.email?.trim() || "";
+if (emailEl) {
+  const emailFromFirestore =
+    typeof userData.email === "string" ? userData.email.trim() : "";
+
+  const emailFromAuth =
+    typeof user.email === "string" ? user.email.trim() : "";
+
+  emailEl.innerText = emailFromFirestore || emailFromAuth || "";
+}
+
       } else {
         console.log("Nenhum documento encontrado com esse ID");
       }
