@@ -31,8 +31,8 @@ singUp.addEventListener('click', async (event) => {
 const signIn = document.getElementById('SubmitBtnEntrar');
 signIn.addEventListener('click', async (event) => {
   event.preventDefault();
-  const email = document.getElementById('emailUser').value.trim();
-  const senha = document.getElementById('senhaUser').value;
+  const email = document.getElementById('emailUserLogin').value.trim();
+  const senha = document.getElementById('senhaUserLogin').value;       
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, senha);
@@ -41,7 +41,6 @@ signIn.addEventListener('click', async (event) => {
     console.log('Login feito com sucesso');
     localStorage.setItem('logadoUserID', user.uid);
     window.location.href = 'PaginaInicial.html'; 
-
   } catch (error) {
     if (error.code === 'auth/user-not-found') {
       alert('Essa conta não existe');
@@ -54,6 +53,7 @@ signIn.addEventListener('click', async (event) => {
     }
   }
 });
+
 
 
 onAuthStateChanged(auth, (user) => {
