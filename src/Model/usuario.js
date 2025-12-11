@@ -3,16 +3,21 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/fi
 import { getDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 onAuthStateChanged(auth, async (user) => {
-  const logadoUserID = localStorage.getItem("logadoUserID");
-  if (logadoUserID) {
+  if (user) {
     try {
-      const docRef = doc(db, "users", logadoUserID);
+      const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         const userData = docSnap.data();
-        document.getElementById("LogadoApelidoUser").innerText = userData.apelido || "";
-        document.getElementById("LogadoNomeUser").innerText = userData.nome || "";
-        document.getElementById("LogadoEmailUser").innerText = userData.email || "";
+
+        const apelidoEl = document.getElementById("LogadoApelidoUser");
+        if (apelidoEl) apelidoEl.innerText = userData.apelido || "";
+
+        const nomeEl = document.getElementById("LogadoNomeUser");
+        if (nomeEl) nomeEl.innerText = userData.nome || "";
+
+        const emailEl = document.getElementById("LogadoEmailUser");
+        if (emailEl) emailEl.innerText = userData.email?.trim() || "";
       } else {
         console.log("Nenhum documento encontrado com esse ID");
       }
@@ -20,6 +25,6 @@ onAuthStateChanged(auth, async (user) => {
       console.error("Erro ao pegar o documento:", error);
     }
   } else {
-    console.log("Id do usuário não encontrado no localStorage");
+    console.log("Nenhum usuário logado");
   }
 });
