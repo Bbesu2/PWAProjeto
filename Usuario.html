@@ -81,11 +81,8 @@
       e.preventDefault();
       window.location.href = "./Atualizar.html";
     });
-</script>
 
-
-  <script type="module">
-  onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(auth, (user) => {
     if (!user) {
       console.log("nenhuma conta encontrada")
       window.location.href = "./Cadastro.html";
