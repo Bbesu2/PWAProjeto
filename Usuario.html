@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <script type="module" src="./src/Model/logout.js" defer></script>
   <script type="module" src="./src/Model/usuario.js" defer></script>
+  <script type="module" src="./src/Controller/user-update.js" defer></script>
 <link rel="icon" href="./src/Imagens/icon-48.png" type="image/png">
 </head>
 <body>
@@ -74,13 +75,14 @@
     </div>
   </div>
 
-  <script type="module">
+<script type="module">
     const btn = document.getElementById("SubmitBtnAtualizar");
     btn?.addEventListener("click", (e) => {
       e.preventDefault();
       window.location.href = "/Atualizar.html";
     });
-  </script>
+</script>
+
 
   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
