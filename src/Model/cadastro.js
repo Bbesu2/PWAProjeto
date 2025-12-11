@@ -39,7 +39,7 @@ signIn.addEventListener('click', async (event) => {
 
     console.log('Login feito com sucesso');
     localStorage.setItem('logadoUserID', user.uid);
-    window.location.href = 'PaginaInicial.html'; 
+    window.location.href = './PaginaInicial.html'; 
   } catch (error) {
     if (error.code === 'auth/user-not-found') {
       alert('Essa conta não existe');
@@ -49,23 +49,6 @@ signIn.addEventListener('click', async (event) => {
       alert('Email inválido');
     } else {
       alert('Erro ao entrar: ' + error.message);
-    }
-  }
-});
-
-
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log("Usuário autenticado:", user.email, user.uid);
-    if (window.location.pathname.includes("Cadastro.html") || 
-        window.location.pathname.includes("Cadastro.html")) {
-      window.location.href = "./PaginaInicial.html";
-    }
-  } else {
-    console.log("Nenhum usuário logado");
-    if (window.location.pathname.includes("PaginaInicial.html")) {
-      window.location.href = "./Cadastro.html";
     }
   }
 });
