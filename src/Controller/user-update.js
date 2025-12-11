@@ -23,7 +23,8 @@ onAuthStateChanged(auth, async (user) => {
 
   const form = document.getElementById("userUpdateForm");
   const cancelBtn = document.getElementById("cancelUpdate");
-
+  \
+async function carregarDadosUsuario(user) {
   try {
     const snap = await getDoc(doc(db, "users", user.uid));
     if (snap.exists()) {
@@ -35,6 +36,7 @@ onAuthStateChanged(auth, async (user) => {
   } catch (error) {
     console.error("Erro ao carregar dados:", error);
   }
+}
 
   cancelBtn?.addEventListener("click", () => {
     window.location.href = "./Usuario.html";
