@@ -8,10 +8,13 @@
 
   <link rel="stylesheet" href="./src/CSS/estilo.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <script type="module" src="./src/Model/authUser.js"></script>
   <script type="module" src="./src/Model/configFirebase.js" defer></script>
   <script type="module" src="./src/Model/logout.js" defer></script>
   <script type="module" src="./src/Model/usuario.js" defer></script>
   <script type="module" src="./src/Controller/user-update.js" defer></script>
+
 <link rel="icon" href="./src/Imagens/icon-48.png" type="image/png">
 </head>
 <body>
@@ -76,39 +79,13 @@
     </div>
   </div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { 
-  getAuth, onAuthStateChanged 
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyB31IZTdVVqvpR42akBqg1MethvAozL_20",
-  authDomain: "projetopwa-1c79a.firebaseapp.com",
-  projectId: "projetopwa-1c79a",
-  storageBucket: "projetopwa-1c79a.appspot.com",
-  messagingSenderId: "262652544848",
-  appId: "1:262652544848:web:da4b58af50dbdfccd28e55",
-  measurementId: "G-SQJPC0BCWX"
-};
-
-  const app = initializeApp(firebaseConfig);
-  const auth=getAuth(app);
-
+<script>
   const btn = document.getElementById("SubmitBtnAtualizar");
   btn?.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.href = "./Atualizar.html";
   });
-
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      console.log("nenhuma conta encontrada");
-      window.location.href = "./Cadastro.html";
-    } else {
-      console.log("Usuário autenticado:", user.email);
-    }
-  });
 </script>
+
 </body>
 </html>

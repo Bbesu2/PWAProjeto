@@ -1,20 +1,16 @@
+import { auth, db } from "./firebase-config.js";
 import { 
-  getAuth, 
   onAuthStateChanged, 
   updateEmail, 
   reauthenticateWithCredential, 
   EmailAuthProvider 
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 import { 
-  getFirestore, 
   setDoc, 
   doc, 
-  deleteDoc, 
   getDoc 
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-const auth = getAuth(app);
-const db = getFirestore(app);
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
@@ -27,7 +23,6 @@ onAuthStateChanged(auth, async (user) => {
 
   const form = document.getElementById("userUpdateForm");
   const cancelBtn = document.getElementById("cancelUpdate");
-  const deleteBtn = document.getElementById("deleteAccount");
 
   try {
     const snap = await getDoc(doc(db, "users", user.uid));
@@ -45,31 +40,6 @@ onAuthStateChanged(auth, async (user) => {
     window.location.href = "./Usuario.html";
   });
 
-  deleteBtn?.addEventListener("click", async () => {
-    try {
-      await deleteDoc(doc(db, "users", user.uid));
-      await user.delete();
-      alert("Conta excluída com sucesso!");
-      window.location.href = "./Cadastro.html";
-    } catch (error) {
-      console.error("Erro ao excluir:", error);
-      if (error.code === "auth/requires-recent-login") {
-        const senha = prompt("Digite sua senha para confirmar exclusão:");
-        if (senha) {
-          const cred = EmailAuthProvider.credential(user.email, senha);
-          await reauthenticateWithCredential(user, cred);
-          await user.delete();
-          await deleteDoc(doc(db, "users", user.uid));
-          alert("Conta excluída com sucesso!");
-          window.location.href = "./Cadastro.html";
-        } else {
-          alert("Exclusão cancelada.");
-        }
-      } else {
-        alert("Erro ao excluir conta: " + error.message);
-      }
-    }
-  });
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
