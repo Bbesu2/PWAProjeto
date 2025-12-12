@@ -8,7 +8,6 @@
   <script type="module" src="./src/Controller/user-update.js" defer></script>
   <script type="module" src="./src/Model/configFirebase.js" defer></script>
   <script type="module" src="./src/Model/usuario.js"></script>
-  <script type="module" src="./src/Model/authUser.js" defer></script>
 
     <link rel="stylesheet" href="./src/CSS/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -76,9 +75,9 @@
   <input type="text" id="novoApelidoUser" value="">
   <br><br>
 
-  <label for="novoEmailUser">E‑mail:</label>
+  <label for="novoEmailUser"></label>
   <br>
-  <input readonly type="email" id="novoEmailUser" value="">
+  <input hidden type="email" id="novoEmailUser" value="">
   
   <div class="botao">  
     <button class="opc" type="submit">Salvar Alterações</button>
