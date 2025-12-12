@@ -6,7 +6,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 import { doc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-onAuthStateChanged(auth, async (user) => {
+onAuthStateChanged(auth, (user) => {
   if (!user) {
     console.log("Nenhum usuário logado.");
     window.location.href = "./Cadastro.html";
@@ -18,11 +18,12 @@ onAuthStateChanged(auth, async (user) => {
   const deleteBtn = document.getElementById("deleteAccount");
 
   deleteBtn?.addEventListener("click", async () => {
+    const confirmar = confirm("Tem certeza que deseja excluir sua conta?");
+    if (!confirmar) return;
+
     try {
-      // exclui documento no Firestore
-      await deleteDoc(doc(db, "users", user.uid));
-      // exclui conta no Auth
       await user.delete();
+      await deleteDoc(doc(db, "users", user.uid));
 
       alert("Conta excluída com sucesso!");
       window.location.href = "./Cadastro.html";
@@ -36,8 +37,8 @@ onAuthStateChanged(auth, async (user) => {
             const cred = EmailAuthProvider.credential(user.email, senha);
             await reauthenticateWithCredential(user, cred);
 
-            await deleteDoc(doc(db, "users", user.uid));
             await user.delete();
+            await deleteDoc(doc(db, "users", user.uid));
 
             alert("Conta excluída com sucesso!");
             window.location.href = "./Cadastro.html";
