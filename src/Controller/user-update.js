@@ -45,56 +45,30 @@ onAuthStateChanged(auth, async (user) => {
     window.location.href = "./Usuario.html";
   });
 
-  form?.addEventListener("submit", async (event) => {
-    event.preventDefault();
+ form?.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-    const novoNome = document.getElementById("novoNomeUser").value.trim();
-    const novoApelido = document.getElementById("novoApelidoUser").value.trim();
-    const novoEmail = document.getElementById("novoEmailUser").value.trim();
+  const novoNome = document.getElementById("novoNomeUser").value.trim();
+  const novoApelido = document.getElementById("novoApelidoUser").value.trim();
 
-    try {
-      const docRef = doc(db, "users", user.uid);
+  try {
+    const docRef = doc(db, "users", user.uid);
 
-      const updates = {};
-      if (novoNome) updates.nome = novoNome;
-      if (novoApelido) updates.apelido = novoApelido;
+    const updates = {};
+    if (novoNome) updates.nome = novoNome;
+    if (novoApelido) updates.apelido = novoApelido;
 
-      if (Object.keys(updates).length > 0) {
-        await setDoc(docRef, updates, { merge: true });
-      }
+    console.log("Updates:", updates);
 
-
-      // Ignora essa parte, isso aqui era para atualizar email, mas não tive tempo para configurar e preferi só deixar aqui, caso eu atualize o doc ja ta o codigo pronto
-      if (novoEmail && novoEmail !== user.email) {
-        const confirmar = confirm(`Deseja realmente alterar seu e‑mail para ${novoEmail}?`);
-        if (confirmar) {
-          try {
-            await updateEmail(user, novoEmail);
-            await setDoc(docRef, { email: novoEmail }, { merge: true });
-            console.log("E‑mail atualizado com sucesso!");
-          } catch (err) {
-            if (err.code === "auth/requires-recent-login") {
-              const senha = prompt("Digite sua senha para confirmar:");
-              if (senha) {
-                const cred = EmailAuthProvider.credential(user.email, senha);
-                await reauthenticateWithCredential(user, cred);
-                await updateEmail(user, novoEmail);
-                await setDoc(docRef, { email: novoEmail }, { merge: true });
-                console.log("E‑mail atualizado com sucesso!");
-              } else {
-                alert("Alteração de e‑mail cancelada.");
-              }
-            } else {
-              throw err;
-            }
-          }
-        }
-      }
-
-      alert("Dados atualizados com sucesso!");
-      window.location.href = "./Usuario.html"; 
-    } catch (error) {
-      console.error("Erro ao atualizar:", error);
-      alert("Erro ao atualizar: " + error.message);
+    if (Object.keys(updates).length > 0) {
+      await setDoc(docRef, updates, { merge: true });
+      console.log("Firestore atualizado com sucesso!");
     }
-  });
+
+    alert("Dados atualizados com sucesso!");
+    window.location.href = "./Usuario.html"; 
+  } catch (error) {
+    console.error("Erro ao atualizar:", error);
+    alert("Erro ao atualizar: " + error.message);
+  }
+});
