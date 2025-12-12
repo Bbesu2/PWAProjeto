@@ -1,17 +1,11 @@
 import { auth, db } from "./configFirebase.js";
-import { 
-  doc, 
-  deleteDoc, 
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-
+import { doc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     console.log("Nenhum usuário logado.");
     window.location.href = "./Cadastro.html";
-    return;
-  }
+
 
   const deleteBtn = document.getElementById("deleteAccount");
  
@@ -41,4 +35,4 @@ onAuthStateChanged(auth, async (user) => {
     }
   });
 
-});
+}});
