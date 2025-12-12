@@ -1,9 +1,6 @@
 import { auth, db } from "../Model/configFirebase.js";
 import { 
   onAuthStateChanged, 
-  updateEmail, 
-  reauthenticateWithCredential, 
-  EmailAuthProvider 
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 import { 
   setDoc, 
@@ -58,11 +55,8 @@ onAuthStateChanged(auth, async (user) => {
     if (novoNome) updates.nome = novoNome;
     if (novoApelido) updates.apelido = novoApelido;
 
-    console.log("Updates:", updates);
-
     if (Object.keys(updates).length > 0) {
       await setDoc(docRef, updates, { merge: true });
-      console.log("Firestore atualizado com sucesso!");
     }
 
     alert("Dados atualizados com sucesso!");
