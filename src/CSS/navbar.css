@@ -7,14 +7,13 @@ header {
   z-index: 1;
 }
 
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-
-/* estilo padrão */
 .user-link i {
   color: #e7dba3;
   transition: color 0.3s ease;
@@ -34,6 +33,19 @@ header {
     position: relative;
     left: -10px;
     z-index: 2;
+  }
+
+  ul.descricao {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 1rem;
+    background-color: var(--color-principal-0);
   }
 
   .navbar ul.descricao {
@@ -76,12 +88,14 @@ header {
 
 @media screen and (max-device-width: 767px) {
   
-  .logo {
-    height: 100px;
+  .navbar .logo {
+    height: 200px;
     position: relative;
+    left: -10px;
     z-index: 2;
   }
 
+  
   ul.descricao {
     display: none;
     list-style: none;
@@ -91,9 +105,10 @@ header {
     position: absolute;
     top: 70px;
     left: 0;
-    padding: 1rem;
+    padding: 2rem;
     background-color: var(--color-principal-0);
   }
+
 
   ul.descricao.show {
     display: flex;
