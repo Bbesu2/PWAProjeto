@@ -35,34 +35,37 @@ onAuthStateChanged(auth, async (user) => {
   console.log("Usuário logado:", user.email);
 
   await carregarDadosUsuario(user);
-});
 
+  const form = document.getElementById("userUpdateForm");
+  const cancelBtn = document.getElementById("cancelUpdate");
 
   cancelBtn?.addEventListener("click", () => {
     window.location.href = "./Usuario.html";
   });
 
- form?.addEventListener("submit", async (event) => {
-  event.preventDefault();
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  const novoNome = document.getElementById("novoNomeUser").value.trim();
-  const novoApelido = document.getElementById("novoApelidoUser").value.trim();
+    const novoNome = document.getElementById("novoNomeUser").value.trim();
+    const novoApelido = document.getElementById("novoApelidoUser").value.trim();
 
-  try {
-    const docRef = doc(db, "users", user.uid);
+    try {
+      const docRef = doc(db, "users", user.uid);
 
-    const updates = {};
-    if (novoNome) updates.nome = novoNome;
-    if (novoApelido) updates.apelido = novoApelido;
+      const updates = {};
+      if (novoNome) updates.nome = novoNome;
+      if (novoApelido) updates.apelido = novoApelido;
 
-    if (Object.keys(updates).length > 0) {
-      await setDoc(docRef, updates, { merge: true });
+      if (Object.keys(updates).length > 0) {
+        await setDoc(docRef, updates, { merge: true });
+        console.log("Firestore atualizado com sucesso!");
+      }
+
+      alert("Dados atualizados com sucesso!");
+      window.location.href = "./Usuario.html"; 
+    } catch (error) {
+      console.error("Erro ao atualizar:", error);
+      alert("Erro ao atualizar: " + error.message);
     }
-
-    alert("Dados atualizados com sucesso!");
-    window.location.href = "./Usuario.html"; 
-  } catch (error) {
-    console.error("Erro ao atualizar:", error);
-    alert("Erro ao atualizar: " + error.message);
-  }
+  });
 });
