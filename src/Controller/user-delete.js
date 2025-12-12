@@ -9,9 +9,9 @@ import { doc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.6.0/fireba
 onAuthStateChanged(auth, (user) => {
   if (!user) return;
 
-  const deleteBtn = document.getElementById("deleteAccount");
-  if (!deleteBtn) return;
 
+const deleteBtn = document.getElementById("deleteAccount");
+if (deleteBtn) {
   deleteBtn.addEventListener("click", async () => {
     const confirmar = confirm("Tem certeza que deseja excluir sua conta?");
     if (!confirmar) return;
@@ -47,7 +47,11 @@ onAuthStateChanged(auth, (user) => {
         }
       } else {
         alert("Erro ao excluir conta: " + error.message);
-      }
+            }
+          }
+        }
+      )
     }
-  });
-});
+  }
+)
+
