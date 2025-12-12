@@ -1,6 +1,5 @@
 import {onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       console.log("nenhuma conta encontrada");
@@ -8,4 +7,5 @@ import {onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/fir
     } else {
       console.log("Usuário autenticado:", user.email);
     }
-  });
+  }
+);

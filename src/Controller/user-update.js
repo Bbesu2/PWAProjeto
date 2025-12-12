@@ -17,14 +17,19 @@ async function carregarDadosUsuario(user) {
     const snap = await getDoc(doc(db, "users", user.uid));
     if (snap.exists()) {
       const data = snap.data();
+      console.log("Dados carregados:", data);
+
       document.getElementById("novoNomeUser").value = data.nome ?? "";
       document.getElementById("novoApelidoUser").value = data.apelido ?? "";
       document.getElementById("novoEmailUser").value = user.email ?? data.email ?? "";
+    } else {
+      console.log("Documento não encontrado para:", user.uid);
     }
   } catch (error) {
     console.error("Erro ao carregar dados:", error);
   }
 }
+
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
