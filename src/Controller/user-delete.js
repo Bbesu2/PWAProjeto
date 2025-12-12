@@ -15,8 +15,8 @@ onAuthStateChanged(auth, (user) => {
     if (!confirmar) return;
 
     try {
-      await deleteDoc(doc(db, "users", user.uid));
       await user.delete();
+      await deleteDoc(doc(db, "users", user.uid));
       alert("Conta excluída com sucesso!");
       window.location.href = "./Cadastro.html";
     } catch (error) {
@@ -25,8 +25,8 @@ onAuthStateChanged(auth, (user) => {
         if (senha) {
           const cred = EmailAuthProvider.credential(user.email, senha);
           await reauthenticateWithCredential(user, cred);
-          await deleteDoc(doc(db, "users", user.uid));
           await user.delete();
+          await deleteDoc(doc(db, "users", user.uid));
           alert("Conta excluída com sucesso!");
           window.location.href = "./Cadastro.html";
         }
