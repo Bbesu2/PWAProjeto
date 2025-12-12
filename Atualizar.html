@@ -5,9 +5,10 @@
   <title>Atualizar Dados</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script type="module" src="./src/Controller/user-update.js" defer></script>
   <script type="module" src="./src/Model/configFirebase.js" defer></script>
   <script type="module" src="./src/Model/usuario.js"></script>
+  <script type="module" src="./src/Controller/user-update.js" defer></script>
+
 
     <link rel="stylesheet" href="./src/CSS/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -66,19 +67,15 @@
 <h2>Atualizar Dados</h2>
 <form id="userUpdateForm">
   <label for="novoNomeUser">Nome:</label>
-  <br>
-  <input type="text" id="novoNomeUser" value="">
-  <br><br>
-
+  <input type="text" id="novoNomeUser">
+<br>
+<br>
   <label for="novoApelidoUser">Apelido:</label>
-  <br>
-  <input type="text" id="novoApelidoUser" value="">
-  <br><br>
-
+  <input type="text" id="novoApelidoUser">
+<br>
+<br>
   <label for="novoEmailUser">E‑mail:</label>
-  <br>
-  <input readonly type="email" id="novoEmailUser" value="">
-  
+  <input type="email" id="novoEmailUser" readonly>
   <div class="botao">  
     <button class="opc" type="submit">Salvar Alterações</button>
     <button class="opc" type="button" id="cancelUpdate">Cancelar</button>

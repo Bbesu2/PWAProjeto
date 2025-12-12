@@ -1,4 +1,4 @@
-import { auth, db } from "./configFirebase.js";
+import { auth, db } from "../Model/configFirebase.js";
 import { 
   onAuthStateChanged, 
   updateEmail, 
@@ -11,10 +11,10 @@ import {
   getDoc 
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-
 async function carregarDadosUsuario(user) {
   try {
     const snap = await getDoc(doc(db, "users", user.uid));
+    console.log("snap.exists:", snap.exists());
     if (snap.exists()) {
       const data = snap.data();
       console.log("Dados carregados:", data);
@@ -22,14 +22,11 @@ async function carregarDadosUsuario(user) {
       document.getElementById("novoNomeUser").value = data.nome ?? "";
       document.getElementById("novoApelidoUser").value = data.apelido ?? "";
       document.getElementById("novoEmailUser").value = user.email ?? data.email ?? "";
-    } else {
-      console.log("Documento não encontrado para:", user.uid);
     }
   } catch (error) {
     console.error("Erro ao carregar dados:", error);
   }
 }
-
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
@@ -40,10 +37,9 @@ onAuthStateChanged(auth, async (user) => {
 
   console.log("Usuário logado:", user.email);
 
-  const form = document.getElementById("userUpdateForm");
-  const cancelBtn = document.getElementById("cancelUpdate");
-
   await carregarDadosUsuario(user);
+});
+
 
   cancelBtn?.addEventListener("click", () => {
     window.location.href = "./Usuario.html";
@@ -102,4 +98,3 @@ onAuthStateChanged(auth, async (user) => {
       alert("Erro ao atualizar: " + error.message);
     }
   });
-});
